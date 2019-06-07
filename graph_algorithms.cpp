@@ -27,11 +27,22 @@ std::map<int, int> get_degree_distribution(Graph graph)
 	size_t len = graph.adjList.size();
 	out_file.open("degree_distribution_" + std::to_string(len) + ".txt", std::ofstream::app);
 
-	for (size_t i = 0; i < len; ++i)
+	for (size_t i = 1; i < len; ++i)
 	{
-		degree_dist[i] = graph.adjList[i].size();
-		out_file << degree_dist[i];
+		if (degree_dist.find(graph.adjList[i].size()) == degree_dist.end())
+		{
+			degree_dist[graph.adjList[i].size()] = 1;
+		}
+		else
+		{
+			++degree_dist[graph.adjList[i].size()];
+		}
 	}
 
+	size_t degrees = degree_dist.size();
+	for(size_t i = 0; i < degrees; ++i)
+	{ 
+		out_file << i << "," << degree_dist[i] << std::endl;
+	}
 	return degree_dist;
 }

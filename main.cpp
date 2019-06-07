@@ -18,6 +18,8 @@ int main()
 		std::cout << deg[i];
 	}
 
+	run_tests();
+
 	std::cout << std::endl;
 	system("pause");
 	return 0;

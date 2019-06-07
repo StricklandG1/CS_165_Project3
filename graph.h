@@ -3,6 +3,7 @@
 
 #include <set>
 #include <iostream>
+#include <unordered_map>
 #include "node.h"
 
 class Graph : public AbstractGraph
