@@ -63,7 +63,7 @@ std::map<int, int> get_degree_distribution(const Graph& graph)
 
 	for (itr; itr != end; ++itr)
 	{
-		out_file << itr->first << "," << itr->second << std::endl;
+		out_file << itr->first << "," << itr->second << "\r\n";
 	}
 	return degree_dist;
 }

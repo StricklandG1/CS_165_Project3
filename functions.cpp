@@ -54,7 +54,7 @@ int BFS_traversal(const Graph& g, int start, int& last)
 				//std::cout << last << "  ";
 			}
 		}
-		//std::cout << "} " << "last: " << last << std::endl;
+		//std::cout << "} " << "last: " << last << "\r\n";
 	}
 
 	delete[] visited;
@@ -179,11 +179,11 @@ void test_graph(int n)
 	std::ofstream out_file;
 
 	out_file.open("diameter.txt", std::ofstream::app);
-	out_file << n << "," << get_diameter(g) << std::endl;
+	out_file << n << "," << get_diameter(g) << "\r\n";
 
 	out_file.close();
 	out_file.open("clustering_coefficient.txt", std::ofstream::app);
-	out_file << n << "," << get_clustering_coefficient(g) << std::endl;
+	out_file << n << "," << get_clustering_coefficient(g) << "\r\n";
 
 	get_degree_distribution(g);
 	

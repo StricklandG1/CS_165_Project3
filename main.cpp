@@ -13,9 +13,9 @@ int main()
 
 	test_graph(1000);
 
-	//test_graph(10000);
+	test_graph(10000);
 
-	//test_graph(100000);
+	test_graph(100000);
 
 	//run_tests();
 
