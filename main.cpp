@@ -1,24 +1,27 @@
 #include "project3.h"
 #include "graph.h"
 #include "tests.h"
+#include "functions.h"
 
 #include <iostream>
 
 int main()
 {
-	Graph g = make_graph(3, { 1, 2, 3 }, { 3, 1, 2 });
+	test_graph(10);
 
-	std::cout << g;
+	test_graph(100);
 
-	std::map<int,int> deg = get_degree_distribution(g);
+	test_graph(1000);
 
-	size_t len = deg.size();
-	for (size_t i = 1; i < len; ++i)
-	{
-		std::cout << deg[i];
-	}
+	//test_graph(10000);
 
-	run_tests();
+	//test_graph(100000);
+
+	//run_tests();
+
+
+
+
 
 	std::cout << std::endl;
 	system("pause");

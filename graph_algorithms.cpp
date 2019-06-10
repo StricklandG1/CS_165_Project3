@@ -1,23 +1,42 @@
 #include "project3.h"
 #include "graph.h"
+#include "functions.h"
+#include <random>
 #include <fstream>
 #include <string>
 
-int get_diameter(Graph graph)
+int get_diameter(const Graph& graph)
 {
 	int diameter = 0;
+
+	std::random_device rd;
+	std::mt19937 eng(rd());
+	std::uniform_int_distribution<> distr(1, graph.numNodes);
+
+	int start = distr(eng);
+	int last = 0;
+	int temp = BFS_traversal(graph, start, last);
+
+	while (temp > diameter)
+	{
+		start = last;
+		last = 0;
+		diameter = BFS_traversal(graph, start, last);
+	}
 
 	return diameter;
 }
 
-float get_clustering_coefficient(Graph graph)
+float get_clustering_coefficient(const Graph& graph)
 {
 	float coefficient = 0.0;
+
+	coefficient = 3 * static_cast<float>(triangle_count(graph)) / static_cast<float>(two_edge_paths(graph));
 
 	return coefficient;
 }
 
-std::map<int, int> get_degree_distribution(Graph graph)
+std::map<int, int> get_degree_distribution(const Graph& graph)
 {
 	std::map<int, int> degree_dist;
 
@@ -25,7 +44,7 @@ std::map<int, int> get_degree_distribution(Graph graph)
 
 
 	size_t len = graph.adjList.size();
-	out_file.open("degree_distribution_" + std::to_string(len) + ".txt", std::ofstream::app);
+	out_file.open("degree_distribution_" + std::to_string(len - 1) + ".txt", std::ofstream::app);
 
 	for (size_t i = 1; i < len; ++i)
 	{
@@ -39,10 +58,12 @@ std::map<int, int> get_degree_distribution(Graph graph)
 		}
 	}
 
-	size_t degrees = degree_dist.size();
-	for(size_t i = 0; i < degrees; ++i)
-	{ 
-		out_file << i << "," << degree_dist[i] << std::endl;
+	std::map<int, int>::const_iterator itr = degree_dist.cbegin();
+	std::map<int, int>::const_iterator end = degree_dist.cend();
+
+	for (itr; itr != end; ++itr)
+	{
+		out_file << itr->first << "," << itr->second << std::endl;
 	}
 	return degree_dist;
 }

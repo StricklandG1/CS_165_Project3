@@ -60,9 +60,9 @@ bool Graph::is_neighbor(Node u, Node v)
 /******* ALGORITHMS TO IMPLEMENT ********/
 // implement all 3 in graph_algorithms.cpp
 // should include graph.h
-int get_diameter(Graph graph);
-float get_clustering_coefficient(Graph graph);
-std::map<int, int> get_degree_distribution(Graph graph);
+int get_diameter(const Graph& graph);
+float get_clustering_coefficient(const Graph& graph);
+std::map<int, int> get_degree_distribution(const Graph& graph);
 
 /******* GRAPH GENERATION FUNCTIONS ********/
 Graph create_erdos_renyi_graph(int n, float p); // implement in erdos_renyi.cpp

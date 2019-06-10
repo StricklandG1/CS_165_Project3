@@ -61,10 +61,13 @@ std::map<int, Node> Graph::get_id_to_node_map()
 
 void Graph::addEdge(int u, int v)
 {
-	Node a(u);
-	Node b(v);
-	adjList[u].insert(b);
-	adjList[v].insert(a);
+	if (u != v)
+	{
+		Node a(u);
+		Node b(v);
+		adjList[u].insert(b);
+		adjList[v].insert(a);
+	}
 }
 
 int Graph::getCurrentId()
