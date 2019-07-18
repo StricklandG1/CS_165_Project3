@@ -5,25 +5,25 @@
 
 #include <iostream>
 
-int main()
-{
-	test_graph(10);
-
-	test_graph(100);
-
-	test_graph(1000);
-
-	test_graph(10000);
-
-	test_graph(100000);
-
-	//run_tests();
-
-
-
-
-
-	std::cout << std::endl;
-	system("pause");
-	return 0;
-}
+//int main()
+//{
+//	test_graph(10);
+//
+//	test_graph(100);
+//
+//	test_graph(1000);
+//
+//	//test_graph(10000);
+//
+//	//test_graph(100000);
+//
+//	run_tests();
+//
+//
+//
+//
+//
+//	std::cout << std::endl;
+//	system("pause");
+//	return 0;
+//}

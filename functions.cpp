@@ -9,7 +9,7 @@ int BFS_traversal(const Graph& g, int start, int& last)
 	int* distance = new int[g.numNodes + 1];
 	for (int i = 0; i < g.numNodes + 1; ++i)
 	{
-		distance[i] = SIZE_MAX;
+		distance[i] = -1;
 	}
 
 	distance[start] = 0;
@@ -102,7 +102,6 @@ int triangle_count(const Graph& g)
 		}
 	}
 
-
 	return count;
 }
 
@@ -114,7 +113,7 @@ int two_edge_paths(const Graph& g)
 
 	for (int i = 1; i < len + 1; ++i)
 	{
-		count += g.adjList[i].size() * g.adjList[i].size() - 1 / 2;
+		count += g.adjList[i].size() * (g.adjList[i].size() - 1) / 2;
 	}
 
 	return count;
