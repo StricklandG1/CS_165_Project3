@@ -17,6 +17,7 @@ int Graph::get_num_nodes()
 {
 	return numNodes;
 }
+
 int Graph::get_num_edges()
 {
 	int result = 0;
@@ -26,11 +27,13 @@ int Graph::get_num_edges()
 	}
 	return result / 2; //counts each edge twice {a, b} & {b, a}
 }
+
 bool Graph::is_neighbor(Node u, Node v)
 {
 	std::set<Node>::const_iterator itr = adjList[u.getId()].find(v);
 	return itr != adjList[u.getId()].end();
 }
+
 std::vector<Node> Graph::get_neighbors(Node u)
 {
 	size_t len = adjList[u.getId()].size();
