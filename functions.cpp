@@ -4,7 +4,7 @@
 #include <list>
 #include <queue>
 
-int BFS_traversal(const Graph& g, int start, int& last)
+int BFS_traversal(const Graph& g, const int start, int& last)
 {
 	int* distance = new int[g.numNodes + 1];
 	for (int i = 0; i < g.numNodes + 1; ++i)
