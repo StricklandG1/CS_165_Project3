@@ -4,7 +4,7 @@
 #include <list>
 #include "graph.h"
 
-int BFS_traversal(const Graph& g, int start, int& last);
+int BFS_traversal(const Graph& g, const int start, int& last);
 
 int find_max_dist(int* distances, int size);
 
